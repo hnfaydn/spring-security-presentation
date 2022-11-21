@@ -1,0 +1,30 @@
+### Register
+POST localhost:8080/api/user/register
+Content-Type: application/json
+
+{
+"firstname": "testFirstname",
+"lastname": "testLastname",
+"email": "testMail",
+"password": "testPassword",
+"authority": "admin"
+}
+
+### Admin
+GET localhost:8080/api/user/admin-login
+Authorization: Basic testMail testPassword
+
+
+### User
+GET localhost:8080/api/user/user-login
+Authorization: Basic testMail testPassword
+
+
+### Editor
+GET localhost:8080/api/user/editor-login
+Authorization: Basic testMail testPassword
+
+
+### Any-of-authority
+GET localhost:8080/api/user/any-of-request-login
+Authorization: Basic testMail testPassword

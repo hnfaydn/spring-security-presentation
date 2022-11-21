@@ -1,0 +1,15 @@
+### Get basic authentication test
+GET localhost:8080/api/user/get
+Authorization: Basic testMail test
+
+
+### Post with authentication
+POST localhost:8080/api/user/login
+Authorization: Basic test@mail.com test
+Content-Type: application/json
+
+{
+  "email":"testMail",
+  "password":"test"
+}
+
