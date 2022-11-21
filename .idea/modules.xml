@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/basic-authentication/basic-authentication.iml" filepath="$PROJECT_DIR$/basic-authentication/basic-authentication.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-security-presentation.iml" filepath="$PROJECT_DIR$/spring-security-presentation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-security-with-authority/spring-security-with-authority.iml" filepath="$PROJECT_DIR$/spring-security-with-authority/spring-security-with-authority.iml" />
     </modules>
   </component>
 </project>
