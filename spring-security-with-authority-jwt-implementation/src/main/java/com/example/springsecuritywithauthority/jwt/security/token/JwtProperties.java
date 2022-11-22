@@ -12,8 +12,8 @@ import java.time.Duration;
 @Configuration
 @ConfigurationProperties("jwt")
 public class JwtProperties {
-  private String algorithm;
-  private String secretKey;
-  private String issuer;
-  private Duration expiration;
+    private String algorithm;
+    private String secretKey;
+    private String issuer;
+    private Duration expiration;
 }

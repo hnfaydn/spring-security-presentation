@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-  @ExceptionHandler
-  @ResponseStatus(code = HttpStatus.BAD_REQUEST)
-  public ErrorDataResult<Object> handleBusinessExceptions(Exception exception) {
-    ErrorDataResult<Object> errorDataResult =
-        new ErrorDataResult<>(exception.getMessage(), "An Error Occurred");
-    return errorDataResult;
-  }
+    @ExceptionHandler
+    @ResponseStatus(code = HttpStatus.BAD_REQUEST)
+    public ErrorDataResult<Object> handleBusinessExceptions(Exception exception) {
+        ErrorDataResult<Object> errorDataResult =
+                new ErrorDataResult<>(exception.getMessage(), "An Error Occurred");
+        return errorDataResult;
+    }
 }

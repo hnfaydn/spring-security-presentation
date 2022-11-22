@@ -1,7 +1,5 @@
 package com.example.springsecuritywithauthority.jwt.api;
 
-import antlr.Token;
-import com.example.springsecuritywithauthority.jwt.security.token.TokenService;
 import com.example.springsecuritywithauthority.jwt.user.RegisterRequest;
 import com.example.springsecuritywithauthority.jwt.user.RegisterResponse;
 import com.example.springsecuritywithauthority.jwt.user.UserServiceImpl;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/user")
 public class UserResource {
     private final UserServiceImpl userService;
+
     public UserResource(UserServiceImpl userService) {
         this.userService = userService;
     }
