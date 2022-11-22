@@ -7,8 +7,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="spring-security-with-authority" />
         <module name="spring-security-with-authority-jwt-implementation" />
+        <module name="spring-security-with-authority" />
+        <module name="spring-security-with-authority-jwt-crypted" />
         <module name="basic-authentication" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
       <module name="basic-authentication" target="17" />
       <module name="spring-security-with-authority" target="17" />
       <module name="spring-security-with-authority (1)" target="17" />
+      <module name="spring-security-with-authority-jwt-crypted" target="17" />
       <module name="spring-security-with-authority-jwt-implementation" target="17" />
     </bytecodeTargetLevel>
   </component>
@@ -24,6 +26,7 @@
       <module name="basic-authentication" options="-parameters" />
       <module name="spring-security-with-authority" options="-parameters" />
       <module name="spring-security-with-authority (1)" options="-parameters" />
+      <module name="spring-security-with-authority-jwt-crypted" options="-parameters" />
       <module name="spring-security-with-authority-jwt-implementation" options="-parameters" />
     </option>
   </component>

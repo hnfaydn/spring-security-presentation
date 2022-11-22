@@ -6,6 +6,7 @@
         <option value="$PROJECT_DIR$/basic-authentication/pom.xml" />
         <option value="$PROJECT_DIR$/spring-security-with-authority/pom.xml" />
         <option value="$PROJECT_DIR$/spring-security-with-authority-jwt-implementation/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-security-with-authority-jwt-crypted/pom.xml" />
       </list>
     </option>
   </component>

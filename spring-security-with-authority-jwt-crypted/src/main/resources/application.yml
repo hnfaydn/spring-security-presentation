@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+###Secret Key length should have 32 character
+crypto:
+  secret-key: asdqweasdqweasdwqaedasdwqaeadsad
+  secret-key-algorithm: AES
+  transformation: AES/GCM/NoPadding
+  gcm-tag-length: 16
+  gcm-iv-length: 12
+
+###Secret Key length should have 48 character
+jwt:
+  algorithm: HS256
+  secret-key: qwezdft4rqesdawadasdasdasdasdasdasdasqweweasadfs
+  issuer: softpos-mobile-backend
+  expiration: 1d

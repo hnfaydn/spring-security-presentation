@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/basic-authentication/basic-authentication.iml" filepath="$PROJECT_DIR$/basic-authentication/basic-authentication.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-security-presentation.iml" filepath="$PROJECT_DIR$/spring-security-presentation.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-security-with-authority/spring-security-with-authority.iml" filepath="$PROJECT_DIR$/spring-security-with-authority/spring-security-with-authority.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-security-with-authority-jwt-crypted/spring-security-with-authority-jwt-crypted.iml" filepath="$PROJECT_DIR$/spring-security-with-authority-jwt-crypted/spring-security-with-authority-jwt-crypted.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-security-with-authority-jwt-implementation/spring-security-with-authority-jwt-implementation.iml" filepath="$PROJECT_DIR$/spring-security-with-authority-jwt-implementation/spring-security-with-authority-jwt-implementation.iml" />
     </modules>
   </component>
