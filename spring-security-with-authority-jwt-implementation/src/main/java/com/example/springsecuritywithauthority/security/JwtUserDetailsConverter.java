@@ -13,15 +13,16 @@ import java.util.List;
 
 @Component
 public class JwtUserDetailsConverter implements Converter<Jwt, AbstractAuthenticationToken> {
-    private final TokenService tokenService;
+  private final TokenService tokenService;
 
-    public JwtUserDetailsConverter(@Lazy final TokenService tokenService) {
-        this.tokenService = tokenService;
-    }
+  public JwtUserDetailsConverter(@Lazy final TokenService tokenService) {
+    this.tokenService = tokenService;
+  }
 
-    @Override
-    public AbstractAuthenticationToken convert(final Jwt source) {
-        final User user = tokenService.getUser(source);
-        return new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword(), List.of(Authority.valueOf(user.getAuthority())));
-    }
+  @Override
+  public AbstractAuthenticationToken convert(final Jwt source) {
+    final User user = tokenService.getUser(source);
+    return new UsernamePasswordAuthenticationToken(
+        user.getEmail(), user.getPassword(), List.of(Authority.valueOf(user.getAuthority())));
+  }
 }

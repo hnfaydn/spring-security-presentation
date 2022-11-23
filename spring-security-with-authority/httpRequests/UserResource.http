@@ -5,11 +5,11 @@ Authorization
 X-Csrf-Token:
 
 {
-"firstname": "testFirstname",
-"lastname": "testLastname",
-"email": "testMail",
-"password": "testPassword",
-"authority": "admin"
+  "firstname": "testFirstname",
+  "lastname": "testLastname",
+  "email": "testMail",
+  "password": "testPassword",
+  "authority": "admin"
 }
 
 ### Admin

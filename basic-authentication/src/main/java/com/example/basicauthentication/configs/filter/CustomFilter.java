@@ -28,7 +28,7 @@ public class CustomFilter extends GenericFilterBean {
         this.authenticationConverter.convert(httpServletRequest);
     final var name = authRequest.getName();
     final var method = httpServletRequest.getMethod();
-    log.info("Following user:{} has sent request with method type of {}", name, method);
+    log.info("Following user:'{}' has sent request with method type of {}", name, method);
 
     chain.doFilter(request, response);
   }

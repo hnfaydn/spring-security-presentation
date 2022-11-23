@@ -4,11 +4,11 @@ Content-Type: application/json
 X-Csrf-Token:
 
 {
-"firstname": "testFirstname",
-"lastname": "testLastname",
-"email": "testMail2",
-"password": "testPassword",
-"authority": "user"
+  "firstname": "testFirstname",
+  "lastname": "testLastname",
+  "email": "testMail2",
+  "password": "testPassword",
+  "authority": "user"
 }
 
 ### Admin

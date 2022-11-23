@@ -4,16 +4,16 @@ Content-Type: application/json
 X-Csrf-Token:
 
 {
-"firstname": "testFirstname",
-"lastname": "testLastname",
-"email": "testMail",
-"password": "testPassword",
-"authority": "admin"
+  "firstname": "testFirstname",
+  "lastname": "testLastname",
+  "email": "testMail",
+  "password": "testPassword",
+  "authority": "admin"
 }
 
 ### Admin
 GET localhost:8080/api/user/admin-login
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzb2Z0cG9zLW1vYmlsZS1iYWNrZW5kIiwic3ViIjoidGVzdE1haWwiLCJleHAiOjE2NjkyMzkxMTMsImlhdCI6MTY2OTE1MjcxMywidXNlciI6eyJmaXJzdG5hbWUiOiJ0ZXN0Rmlyc3RuYW1lIiwicGFzc3dvcmQiOiJ0ZXN0UGFzc3dvcmQiLCJhdXRob3JpdHkiOiJBRE1JTiIsImlkIjowLCJlbWFpbCI6InRlc3RNYWlsIiwibGFzdG5hbWUiOiJ0ZXN0TGFzdG5hbWUifX0.NHN8VrpzFcHWRVY8yJbaAzqqzdTSdlRKNf1W3QVXBEo
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzb2Z0cG9zLW1vYmlsZS1iYWNrZW5kIiwic3ViIjoidGVzdE1haWwiLCJleHAiOjE2NjkzMjQyOTQsImlhdCI6MTY2OTIzNzg5NCwidXNlciI6eyJmaXJzdG5hbWUiOiJ0ZXN0Rmlyc3RuYW1lIiwicGFzc3dvcmQiOiJ0ZXN0UGFzc3dvcmQiLCJhdXRob3JpdHkiOiJBRE1JTiIsImlkIjowLCJlbWFpbCI6InRlc3RNYWlsIiwibGFzdG5hbWUiOiJ0ZXN0TGFzdG5hbWUifX0.B-578p7-xRjFHAfi4DOxRllwI9AjVD46h9yXZmhdNfQ
 
 ### User
 GET localhost:8080/api/user/user-login

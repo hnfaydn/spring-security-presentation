@@ -24,56 +24,56 @@ The jsr250Enabled property allows us to use the @RoleAllowed annotation.
 @Configuration
 @EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class SecurityConfiguration {
-    private final JwtUserDetailsConverter jwtUserDetailsConverter;
+  private final JwtUserDetailsConverter jwtUserDetailsConverter;
 
-    public SecurityConfiguration(JwtUserDetailsConverter jwtUserDetailsConverter) {
-        this.jwtUserDetailsConverter = jwtUserDetailsConverter;
-    }
+  public SecurityConfiguration(JwtUserDetailsConverter jwtUserDetailsConverter) {
+    this.jwtUserDetailsConverter = jwtUserDetailsConverter;
+  }
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.authorizeHttpRequests(
-                        authorize ->
-                                authorize
-                                        //  public endpoint everyone can reach without any authority
-                                        .antMatchers("/h2-console", "/api/user/register")
-                                        .permitAll()
+  @Bean
+  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    return http.authorizeHttpRequests(
+            authorize ->
+                authorize
+                    //  public endpoint everyone can reach without any authority
+                    .antMatchers("/h2-console", "/api/user/register")
+                    .permitAll()
 
-                                        //  admin endpoint only admin authority can reach
-                                        // .antMatchers("/api/user/admin-login")
-                                        // .hasAuthority(Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH))
+                    //  admin endpoint only admin authority can reach
+                    // .antMatchers("/api/user/admin-login")
+                    // .hasAuthority(Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH))
 
-                                        //  user endpoint only user authority can reach
-                                        // .antMatchers("/api/user/user-login")
-                                        // .hasAuthority(Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH))
+                    //  user endpoint only user authority can reach
+                    // .antMatchers("/api/user/user-login")
+                    // .hasAuthority(Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH))
 
-                                        //  editor endpoint only editor authority can reach
-                                        // .antMatchers("/api/user/editor-login")
-                                        // .hasAuthority(Authority.EDITOR.getAuthority().toUpperCase(Locale.ENGLISH))
+                    //  editor endpoint only editor authority can reach
+                    // .antMatchers("/api/user/editor-login")
+                    // .hasAuthority(Authority.EDITOR.getAuthority().toUpperCase(Locale.ENGLISH))
 
-                                        //  any authority can reach
-                                        .antMatchers("/api/user/any-of-request-login")
-                                        .hasAnyAuthority(
-                                                Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH),
-                                                Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH),
-                                                Authority.EDITOR.getAuthority().toUpperCase(Locale.ENGLISH),
-                                                Authority.READONLY.getAuthority().toUpperCase(Locale.ENGLISH)))
-                .csrf(AbstractHttpConfigurer::disable)
-                .oauth2ResourceServer(
-                        httpSecurityOAuth2ResourceServerConfigurer ->
-                                httpSecurityOAuth2ResourceServerConfigurer
-                                        .jwt()
-                                        .jwtAuthenticationConverter(jwtUserDetailsConverter))
-                .exceptionHandling(
-                        exceptions ->
-                                exceptions
-                                        .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
-                                        .accessDeniedHandler(new BearerTokenAccessDeniedHandler()))
-                .build();
-    }
+                    //  any authority can reach
+                    .antMatchers("/api/user/any-of-request-login")
+                    .hasAnyAuthority(
+                        Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH),
+                        Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH),
+                        Authority.EDITOR.getAuthority().toUpperCase(Locale.ENGLISH),
+                        Authority.READONLY.getAuthority().toUpperCase(Locale.ENGLISH)))
+        .csrf(AbstractHttpConfigurer::disable)
+        .oauth2ResourceServer(
+            httpSecurityOAuth2ResourceServerConfigurer ->
+                httpSecurityOAuth2ResourceServerConfigurer
+                    .jwt()
+                    .jwtAuthenticationConverter(jwtUserDetailsConverter))
+        .exceptionHandling(
+            exceptions ->
+                exceptions
+                    .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
+                    .accessDeniedHandler(new BearerTokenAccessDeniedHandler()))
+        .build();
+  }
 
-    @Bean
-    public PasswordEncoder getPasswordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
-    }
+  @Bean
+  public PasswordEncoder getPasswordEncoder() {
+    return NoOpPasswordEncoder.getInstance();
+  }
 }

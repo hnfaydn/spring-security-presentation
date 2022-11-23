@@ -9,7 +9,7 @@ Authorization: Basic test@mail.com test
 Content-Type: application/json
 
 {
-  "email":"testMail",
-  "password":"test"
+  "email": "testMail",
+  "password": "test"
 }
 

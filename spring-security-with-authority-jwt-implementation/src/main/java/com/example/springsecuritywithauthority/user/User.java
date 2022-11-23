@@ -12,23 +12,23 @@ import javax.persistence.*;
 @Table(name = "users")
 @Builder
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "id")
+  private int id;
 
-    @Column(name = "firstname")
-    private String firstname;
+  @Column(name = "firstname")
+  private String firstname;
 
-    @Column(name = "lastname")
-    private String lastname;
+  @Column(name = "lastname")
+  private String lastname;
 
-    @Column(name = "email")
-    private String email;
+  @Column(name = "email")
+  private String email;
 
-    @Column(name = "password")
-    private String password;
+  @Column(name = "password")
+  private String password;
 
-    @Column(name = "authority")
-    private String authority;
+  @Column(name = "authority")
+  private String authority;
 }
