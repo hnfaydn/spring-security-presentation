@@ -1,6 +1,7 @@
 ### Register
 POST localhost:8080/api/user/register
 Content-Type: application/json
+Authorization
 X-Csrf-Token:
 
 {

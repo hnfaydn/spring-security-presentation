@@ -63,7 +63,8 @@ public class SecurityConfiguration {
                         httpSecurityOAuth2ResourceServerConfigurer ->
                                 httpSecurityOAuth2ResourceServerConfigurer
                                         .jwt()
-                                        .jwtAuthenticationConverter(jwtUserDetailsConverter)).exceptionHandling(
+                                        .jwtAuthenticationConverter(jwtUserDetailsConverter))
+                .exceptionHandling(
                         exceptions ->
                                 exceptions
                                         .authenticationEntryPoint(new BearerTokenAuthenticationEntryPoint())
