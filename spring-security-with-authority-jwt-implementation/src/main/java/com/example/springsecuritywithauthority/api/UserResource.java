@@ -28,14 +28,14 @@ public class UserResource {
   }
 
   // @Secured("USER")//work with roles
-  @PreAuthorize("hasAuthority('USER')")
+  @PreAuthorize("hasAnyAuthority('USER','ADMIN')")
   @GetMapping("/user-login")
   public ResponseEntity<String> userLogin() {
     return this.userService.userAuthorityAcceptOnly();
   }
 
   // @RolesAllowed("EDITOR")//work with roles
-  @PreAuthorize("hasAuthority('EDITOR')")
+  @PreAuthorize("hasAnyAuthority('EDITOR','ADMIN')")
   @GetMapping("/editor-login")
   public ResponseEntity<String> editorLogin() {
     return this.userService.editorAuthorityAcceptOnly();
