@@ -16,12 +16,6 @@ import static org.springframework.security.config.Customizer.withDefaults;
 @EnableWebSecurity
 @Configuration
 public class SecurityConfiguration {
-  private final UserDetailsService userDetailsService;
-
-  public SecurityConfiguration(UserDetailsService userDetailsService) {
-    this.userDetailsService = userDetailsService;
-  }
-
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     return http.httpBasic(withDefaults())

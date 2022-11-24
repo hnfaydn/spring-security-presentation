@@ -5,7 +5,10 @@ import com.example.springsecuritywithauthority.user.RegisterResponse;
 import com.example.springsecuritywithauthority.user.UserServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 @RestController
 @RequestMapping("/api/user")
@@ -44,5 +47,10 @@ public class UserResource {
   @GetMapping("/any-of-request-login")
   public ResponseEntity<String> anyOfAuthorityLogin() {
     return this.userService.acceptsAnyAuthority();
+  }
+
+  @GetMapping("/me")
+  public ResponseEntity<Principal> me(@AuthenticationPrincipal Principal principal) {
+    return ResponseEntity.ok(principal);
   }
 }

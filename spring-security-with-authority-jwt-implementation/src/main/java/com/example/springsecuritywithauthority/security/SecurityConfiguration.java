@@ -55,7 +55,9 @@ public class SecurityConfiguration {
                         Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH),
                         Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH),
                         Authority.EDITOR.getAuthority().toUpperCase(Locale.ENGLISH),
-                        Authority.READONLY.getAuthority().toUpperCase(Locale.ENGLISH)))
+                        Authority.READONLY.getAuthority().toUpperCase(Locale.ENGLISH))
+                    .antMatchers("/api/user/me")
+                    .authenticated())
         .csrf(AbstractHttpConfigurer::disable)
         .oauth2ResourceServer(
             httpSecurityOAuth2ResourceServerConfigurer ->

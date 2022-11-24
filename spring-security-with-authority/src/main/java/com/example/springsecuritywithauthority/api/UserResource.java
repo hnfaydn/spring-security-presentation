@@ -21,7 +21,7 @@ public class UserResource {
     return this.userService.register(registerRequest);
   }
 
-  @PreAuthorize("hasAAuthority('ADMIN')")
+  @PreAuthorize("hasAuthority('ADMIN')")
   @GetMapping("/admin-login")
   public ResponseEntity<String> adminLogin() {
     return this.userService.adminAuthorityAcceptOnly();
