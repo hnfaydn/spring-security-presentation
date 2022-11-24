@@ -41,13 +41,14 @@ public class SecurityConfiguration {
                     .antMatchers("/h2-console", "/api/user/register")
                     .permitAll()
 
-                    //  admin endpoint only admin authority can reach
+                    // admin endpoint only admin authority can reach
                     // .antMatchers("/api/user/admin-login")
                     // .hasAuthority(Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH))
 
                     //  user endpoint only user authority can reach
                     // .antMatchers("/api/user/user-login")
-                    // .hasAuthority(Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH))
+                    // .hasAnyAuthority(Authority.ADMIN
+                    // .getAuthority().toUpperCase(Locale.ENGLISH),Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH))
 
                     //  editor endpoint only editor authority can reach
                     // .antMatchers("/api/user/editor-login")
@@ -63,6 +64,9 @@ public class SecurityConfiguration {
         .csrf(AbstractHttpConfigurer::disable)
         .httpBasic(Customizer.withDefaults())
         .addFilterBefore(new CustomFilter(), BasicAuthenticationFilter.class)
+        .headers()
+        .frameOptions()
+        .disable().and()
         .build();
   }
 

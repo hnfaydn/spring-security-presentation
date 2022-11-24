@@ -18,6 +18,7 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class SecurityConfiguration {
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+
     return http.httpBasic(withDefaults())
         .addFilterBefore(new CustomFilter(), BasicAuthenticationFilter.class)
         .csrf()

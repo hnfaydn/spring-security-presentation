@@ -42,8 +42,8 @@ public class SecurityConfiguration {
                     // .hasAuthority(Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH))
 
                     //  user endpoint only user authority can reach
-                    // .antMatchers("/api/user/user-login")
-                    // .hasAuthority(Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH))
+                     .antMatchers("/api/user/user-login")
+                     .hasAnyAuthority(Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH),Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH))
 
                     //  editor endpoint only editor authority can reach
                     // .antMatchers("/api/user/editor-login")

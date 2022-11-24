@@ -31,7 +31,7 @@ public class UserResource {
   }
 
   // @Secured("USER")//work with roles
-  @PreAuthorize("hasAnyAuthority('USER','ADMIN')")
+  //@PreAuthorize("hasAnyAuthority('USER','ADMIN')")
   @GetMapping("/user-login")
   public ResponseEntity<String> userLogin() {
     return this.userService.userAuthorityAcceptOnly();
@@ -50,7 +50,7 @@ public class UserResource {
   }
 
   @GetMapping("/me")
-  public ResponseEntity<Principal> me(@AuthenticationPrincipal Principal principal) {
+  public ResponseEntity<Principal> me(Principal principal) {
     return ResponseEntity.ok(principal);
   }
 }

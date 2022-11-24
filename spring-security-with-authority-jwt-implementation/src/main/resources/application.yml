@@ -18,5 +18,5 @@ crypto:
 jwt:
   algorithm: HS256
   secret-key: qwezdft4rqesdawadasdasdasdasdasdasdasqweweasadfs
-  issuer: softpos-mobile-backend
+  issuer: jwt-implementation
   expiration: 1d

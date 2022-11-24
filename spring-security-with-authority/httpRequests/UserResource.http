@@ -5,14 +5,14 @@ Content-Type: application/json
 {
   "firstname": "testFirstname",
   "lastname": "testLastname",
-  "email": "testMail",
+  "email": "testMail2",
   "password": "testPassword",
-  "authority": "admin"
+  "authority": "editor"
 }
 
 ### Admin
 GET localhost:8080/api/user/admin-login
-Authorization: Basic testMail testPassword
+Authorization: Basic testMail2 testPassword
 
 
 ### User
@@ -22,7 +22,7 @@ Authorization: Basic testMail testPassword
 
 ### Editor
 GET localhost:8080/api/user/editor-login
-Authorization: Basic testMail testPassword
+Authorization: Basic testMail2 testPassword
 
 
 ### Any-of-authority
