@@ -9,7 +9,7 @@ X-Csrf-Token:
   "lastname": "testLastname",
   "email": "testMail",
   "password": "testPassword",
-  "authority": "admin"
+  "authority": "user"
 }
 
 ### Admin

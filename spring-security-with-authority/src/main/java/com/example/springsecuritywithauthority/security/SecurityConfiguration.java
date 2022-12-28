@@ -42,16 +42,16 @@ public class SecurityConfiguration {
                     .permitAll()
 
                     //  admin endpoint only admin authority can reach
-                    // .antMatchers("/api/user/admin-login")
-                    // .hasAuthority(Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH))
+                     .antMatchers("/api/user/admin-login")
+                     .hasAuthority(Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH))
 
                     //  user endpoint only user authority can reach
-                    // .antMatchers("/api/user/user-login")
-                    // .hasAuthority(Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH))
+                     .antMatchers("/api/user/user-login")
+                     .hasAuthority(Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH))
 
                     //  editor endpoint only editor authority can reach
-                    // .antMatchers("/api/user/editor-login")
-                    // .hasAuthority(Authority.EDITOR.getAuthority().toUpperCase(Locale.ENGLISH))
+                     .antMatchers("/api/user/editor-login")
+                     .hasAuthority(Authority.EDITOR.getAuthority().toUpperCase(Locale.ENGLISH))
 
                     //  any authority can reach
                     .antMatchers("/api/user/any-of-request-login")

@@ -16,20 +16,20 @@ public class UserServiceImpl implements UserService {
   private final EmailVerificationService emailVerificationService;
 
   public UserServiceImpl(
-      UserDao userDao,
-      TokenService tokenService,
-      EmailVerificationService emailVerificationService) {
+          final UserDao userDao,
+          final TokenService tokenService,
+          final EmailVerificationService emailVerificationService) {
     this.userDao = userDao;
     this.tokenService = tokenService;
     this.emailVerificationService = emailVerificationService;
   }
 
   @Override
-  public ResponseEntity<RegisterResponse> register(RegisterRequest registerRequest) {
+  public ResponseEntity<RegisterResponse> register(final RegisterRequest registerRequest) {
 
     CheckEmailIsAlreadyUsing(registerRequest.getEmail());
     emailVerificationService.emailVerification(registerRequest.getEmail());
-    User user =
+    final var user =
         User.builder()
             .id(0)
             .firstname(registerRequest.getFirstname())
@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
 
     final var token = tokenService.createToken(user);
 
-    RegisterResponse registerResponse =
+    final RegisterResponse registerResponse =
         RegisterResponse.builder()
             .firstname(user.getFirstname())
             .lastname(user.getLastname())

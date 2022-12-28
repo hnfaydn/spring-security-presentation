@@ -21,23 +21,23 @@ public class UserResource {
     return this.userService.register(registerRequest);
   }
 
-  @PreAuthorize("hasAuthority('ADMIN')")
+  //@PreAuthorize("hasAuthority('ADMIN')")
   @GetMapping("/admin-login")
   public ResponseEntity<String> adminLogin() {
     return this.userService.adminAuthorityAcceptOnly();
   }
 
   // @Secured("USER")//work with roles
-  @PreAuthorize("hasAuthority('USER')")
+  //@PreAuthorize("hasAuthority('USER')")
   @GetMapping("/user-login")
   public ResponseEntity<String> userLogin() {
     return this.userService.userAuthorityAcceptOnly();
   }
 
   // @RolesAllowed("EDITOR")//work with roles
-  @PreAuthorize("hasAuthority('EDITOR')")
-  @GetMapping("/editor-login")
-  public ResponseEntity<String> editorLogin() {
+  //@PreAuthorize("hasAuthority('EDITOR')")
+  @GetMapping("/editor-login/{id}")
+  public ResponseEntity<String> editorLogin(@PathVariable int id,@RequestParam String name,@RequestBody Request request) {
     return this.userService.editorAuthorityAcceptOnly();
   }
 
@@ -46,3 +46,4 @@ public class UserResource {
     return this.userService.acceptsAnyAuthority();
   }
 }
+
