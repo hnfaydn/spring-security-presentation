@@ -31,40 +31,40 @@ public class SecurityConfiguration {
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     return http.authorizeHttpRequests(
-            authorize ->
-                authorize
-                    //  public endpoint everyone can reach without any authority
-                    .antMatchers("/h2-console", "/api/user/register")
-                    .permitAll()
+                    authorize ->
+                            authorize
+                                    //  public endpoint everyone can reach without any authority
+                                    .antMatchers("/h2-console", "/api/user/register", "/swagger-ui/**", "/swagger-ui.html", "/swagger-ui/index.html", "/v3/api-docs/**")
+                                    .permitAll()
 
-                    //  admin endpoint only admin authority can reach
-                    // .antMatchers("/api/user/admin-login")
-                    // .hasAuthority(Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH))
+                                    //  admin endpoint only admin authority can reach
+                                    // .antMatchers("/api/user/admin-login")
+                                    // .hasAuthority(Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH))
 
-                    //  user endpoint only user authority can reach
-                     .antMatchers("/api/user/user-login")
-                     .hasAnyAuthority(Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH),Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH))
+                                    //  user endpoint only user authority can reach
+                                    .antMatchers("/api/user/user-login")
+                                    .hasAnyAuthority(Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH), Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH))
 
-                    //  editor endpoint only editor authority can reach
-                    // .antMatchers("/api/user/editor-login")
-                    // .hasAuthority(Authority.EDITOR.getAuthority().toUpperCase(Locale.ENGLISH))
+                                    //  editor endpoint only editor authority can reach
+                                    // .antMatchers("/api/user/editor-login")
+                                    // .hasAuthority(Authority.EDITOR.getAuthority().toUpperCase(Locale.ENGLISH))
 
-                    //  any authority can reach
-                    .antMatchers("/api/user/any-of-request-login")
-                    .hasAnyAuthority(
-                        Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH),
-                        Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH),
-                        Authority.EDITOR.getAuthority().toUpperCase(Locale.ENGLISH),
-                        Authority.READONLY.getAuthority().toUpperCase(Locale.ENGLISH))
-                    .antMatchers("/api/user/me")
-                    .authenticated())
-        .csrf(AbstractHttpConfigurer::disable)
-        .oauth2ResourceServer(
-            httpSecurityOAuth2ResourceServerConfigurer ->
-                httpSecurityOAuth2ResourceServerConfigurer
-                    .jwt()
-                    .jwtAuthenticationConverter(jwtUserDetailsConverter))
-        .build();
+                                    //  any authority can reach
+                                    .antMatchers("/api/user/any-of-request-login")
+                                    .hasAnyAuthority(
+                                            Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH),
+                                            Authority.USER.getAuthority().toUpperCase(Locale.ENGLISH),
+                                            Authority.EDITOR.getAuthority().toUpperCase(Locale.ENGLISH),
+                                            Authority.READONLY.getAuthority().toUpperCase(Locale.ENGLISH))
+                                    .antMatchers("/api/user/me")
+                                    .authenticated())
+            .csrf(AbstractHttpConfigurer::disable)
+            .oauth2ResourceServer(
+                    httpSecurityOAuth2ResourceServerConfigurer ->
+                            httpSecurityOAuth2ResourceServerConfigurer
+                                    .jwt()
+                                    .jwtAuthenticationConverter(jwtUserDetailsConverter))
+            .build();
   }
 
   @Bean
