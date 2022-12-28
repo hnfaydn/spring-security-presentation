@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
+
 @RestController
 @RequestMapping("/api/user")
 public class UserResource {
@@ -45,5 +47,9 @@ public class UserResource {
   public ResponseEntity<String> anyOfAuthorityLogin() {
     return this.userService.acceptsAnyAuthority();
   }
-}
 
+  @GetMapping("/me")
+  public ResponseEntity<Principal> me(Principal principal) {
+    return ResponseEntity.ok(principal);
+  }
+}

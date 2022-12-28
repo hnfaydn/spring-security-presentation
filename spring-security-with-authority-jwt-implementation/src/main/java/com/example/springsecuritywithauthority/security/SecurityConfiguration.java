@@ -35,15 +35,13 @@ public class SecurityConfiguration {
     return http.authorizeHttpRequests(
             authorize ->
                 authorize
-                    .antMatchers("/api/user/login")
-                    .hasAuthority(Authority.EDITOR.getAuthority().toUpperCase(Locale.ENGLISH))
                     //  public endpoint everyone can reach without any authority
                     .antMatchers("/h2-console", "/api/user/register")
                     .permitAll()
 
                     //  admin endpoint only admin authority can reach
-                    .antMatchers("/api/user/admin-login")
-                    .hasAuthority(Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH))
+                    // .antMatchers("/api/user/admin-login")
+                    // .hasAuthority(Authority.ADMIN.getAuthority().toUpperCase(Locale.ENGLISH))
 
                     //  user endpoint only user authority can reach
                     // .antMatchers("/api/user/user-login")
